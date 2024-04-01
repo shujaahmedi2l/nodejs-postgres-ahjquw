@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: 696960135893.dkr.ecr.eu-west-1.amazonaws.com/nodejs-postgres-ahjquw
-  tag: dd3ede4c9229bb78483f1ec7d5c1fffaa3961633
+  tag: 468234a32fb13a322df4e341166678b2f00b9478
   pullPolicy: Always
 
 service:
