@@ -15,32 +15,14 @@ jobs:
         
       - name: Create directory for cloned repository
         run: sudo mkdir -p /onexidp
-        
-      - name: Copy file to push
+
+      - name: Pull & Push changes to ONYX Github Repo
         run: |
           sudo cp argo-ci-cd/app.yaml /onexidp/app.yaml
-        # You may need to install any necessary tools or dependencies before running the copy command
-
-      - name: Configure Git
-        run: |
-          sudo git config --global user.name 'GitHub Actions'
-          sudo git config --global user.email 'actions@github.com'
-          sudo git config --global credential.helper cache
-
-      - name: Pull changes from destination repository
-        run: |
           cd /onexidp
           sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
-
-      - name: Commit changes
-        run: |
-          cd /onexidp
           sudo git add .
           sudo git commit -m "Updating argo-ci-cd/app.yaml file"
-      
-      - name: Push changes
-        run: |
-          cd /onexidp
           sudo git push https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
 
       - name: Setup AWS ECR Details
