@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo cp argo-ci-cd/app.yaml /onexidp/app.yaml
           cd /onexidp
-          sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
+          sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git
           ls -la
           sudo git add .
           sudo git commit -m "Updating argo-ci-cd/app.yaml file"
