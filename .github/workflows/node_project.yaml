@@ -13,6 +13,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Checkout destination repository
+        uses: actions/checkout@v2
+        with:
+          repository: robotfree/onexidp-gitops
+          ref: main  # Specify the branch you want to update in the destination repository
+
+      - name: Overwrite file in destination repository
+        run: |
+          cp /argo-ci-cd/app.yaml /onexidp/apps
+        # Make sure to replace /path/to/cloned/repository/file and /path/to/destination/repository with the actual paths
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: shujaahmi2l
+          author_email: shuja.ahmed@ideatolife.me
+          message: "Update single file in destination repository"
+          
+      - name: Push changes
+        uses: EndBug/push-to-another-repository@v1
+        with:
+          github_token: ${{ secrets.REPO_TOKEN }}
+          repository: robotfree/onexidp-gitops
+          branch: main
+
       - name: Setup AWS ECR Details
         uses: aws-actions/configure-aws-credentials@v1
         with:
