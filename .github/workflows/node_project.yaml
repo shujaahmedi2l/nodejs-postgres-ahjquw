@@ -30,18 +30,18 @@ jobs:
       - name: Pull changes from destination repository
         run: |
           cd /onexidp
-          git clone https://github.com/robotfree/onexidp-gitops.git main
+          sudo git clone https://github.com/robotfree/onexidp-gitops.git main
 
       - name: Commit changes
         run: |
           cd /onexidp
-          git add .
-          git commit -m "Updating argo-ci-cd/app.yaml file"
+          sudo git add .
+          sudo git commit -m "Updating argo-ci-cd/app.yaml file"
       
       - name: Push changes
         run: |
           cd /onexidp
-          git push https://github.com/robotfree/onexidp-gitops.git main
+          sudo git push https://github.com/robotfree/onexidp-gitops.git main
 
       - name: Setup AWS ECR Details
         uses: aws-actions/configure-aws-credentials@v1
