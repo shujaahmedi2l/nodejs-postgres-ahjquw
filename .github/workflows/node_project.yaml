@@ -31,7 +31,6 @@ jobs:
         with:
           # GitHub Action output files
           source-directory: ecr/
-          target-directory: aws-resources/
           destination-github-username: robotfree
           destination-repository-name: onexidp-gitops
           user-email: shuja.ahmed@ideatolife.me
