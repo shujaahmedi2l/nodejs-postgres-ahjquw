@@ -41,6 +41,7 @@ jobs:
       - name: Push changes
         run: |
           cd /onexidp
+          ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}
           sudo git push https://github.com/robotfree/onexidp-gitops.git main
 
       - name: Setup AWS ECR Details
