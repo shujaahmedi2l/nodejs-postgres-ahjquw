@@ -15,7 +15,7 @@ jobs:
 
       - name: Copy file to push
         run: |
-          cp argo-ci-cd/app.yaml /onexidp/apps
+          cp argo-ci-cd/app.yaml /onexidp/apps/app.yaml
         # You may need to install any necessary tools or dependencies before running the copy command
 
       - name: Configure Git
@@ -26,18 +26,18 @@ jobs:
 
       - name: Pull changes from destination repository
         run: |
-          cd /onexidp/apps
+          cd /onexidp
           git pull https://github.com/robotfree/onexidp-gitops.git main
 
       - name: Commit changes
         run: |
-          cd /onexidp/apps
+          cd /onexidp
           git add .
           git commit -m "Updating argo-ci-cd/app.yaml file"
       
       - name: Push changes
         run: |
-          cd /onexidp/apps
+          cd /onexidp
           git push https://github.com/robotfree/onexidp-gitops.git main
 
       - name: Setup AWS ECR Details
