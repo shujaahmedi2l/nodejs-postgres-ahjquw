@@ -30,7 +30,7 @@ jobs:
           sudo git config user.name 'GitHub Actions'
           sudo git config user.email 'actions@github.com'
           sudo git add .
-          sudo git commit -m "Updating argo-ci-cd/app.yaml file"
+          sudo git commit -m "Updating argo-ci-cd/app.yaml file" || true
           sudo git push https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
 
       - name: Setup AWS ECR Details
