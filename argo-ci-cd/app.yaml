@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/shujaahmedi2l/nodejs-postgres-ahjquw.git
-    targetRevision: main
+    targetRevision: master
     path: helm/
     helm:
       valueFiles:
