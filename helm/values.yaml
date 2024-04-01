@@ -1,7 +1,7 @@
 replicaCount: 3
 
 image:
-  repository: shujaahmedi2l/nodejs-postgres-ahjquw
+  repository: 696960135893.dkr.ecr.eu-west-1.amazonaws.com/nodejs-postgres-ahjquw
   tag: 0cf2a1dc84e9b9895b288749e497a24cd710bd0b
   pullPolicy: Always
 
