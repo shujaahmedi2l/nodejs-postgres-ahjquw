@@ -14,14 +14,15 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Create directory for cloned repository
-        run: sudo mkdir -p /onexidp
+        run: sudo mkdir -p /tmp
 
       - name: Pull & Push changes to ONYX Github Repo
         run: |
-          sudo cp argo-ci-cd/app.yaml /onexidp/app.yaml
-          cd /onexidp
-          sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git
+          cd /tmp
+          sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
+          sudo cp argo-ci-cd/app.yaml /tmp/main/onexidp/apps/app.yaml
           ls -la
+          cd /tmp/main
           sudo git add .
           sudo git commit -m "Updating argo-ci-cd/app.yaml file"
           sudo git push https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
