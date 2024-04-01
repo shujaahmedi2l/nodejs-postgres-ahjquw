@@ -50,6 +50,11 @@ jobs:
           ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPO }}
           IMAGE_TAG: latest
         run: |
+          echo ${{secrets.AWS_ECR_REGISTRY}}
+          echo ${{secrets.AWS_ECR_REPO}}
+          echo ${{secrets.AWS_ACCESS_KEY_ID}}
+          echo ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          echo ${{secrets.AWS_REGION}}
           docker login
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
