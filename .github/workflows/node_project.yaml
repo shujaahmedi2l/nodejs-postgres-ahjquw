@@ -15,7 +15,7 @@ jobs:
 
       - name: Copy file to push
         run: |
-          cp argo-ci-cd/app.yaml /onexidp/apps/app.yaml
+          cp argo-ci-cd/app.yaml ./onexidp/apps/app.yaml
         # You may need to install any necessary tools or dependencies before running the copy command
 
       - name: Configure Git
