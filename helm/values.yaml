@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: shujaahmedi2l/nodejs-postgres-ahjquw
-  tag: 'latest'
+  tag: 0cf2a1dc84e9b9895b288749e497a24cd710bd0b
   pullPolicy: Always
 
 service:
