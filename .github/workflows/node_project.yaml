@@ -19,7 +19,7 @@ jobs:
       - name: Pull & Push changes to ONYX Github Repo
         run: |
           sudo cp argo-ci-cd/app.yaml /tmp/app.yaml
-          sudo cp ecr/ecr-nodejs-postgres.yaml /tmp/ecr-nodejs-postgres.yaml
+          sudo cp ecr/ecr-nodejs-postgres-ahjquw.yaml /tmp/ecr-nodejs-postgres.yaml
           cd /tmp
           sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
           ls -la
