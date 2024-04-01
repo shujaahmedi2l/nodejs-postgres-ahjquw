@@ -55,7 +55,7 @@ letsencrypt:
 
 livenessProbe:
   httpGet:
-    path: /health
+    path: /
     port: 8080
   initialDelaySeconds: 15
   periodSeconds: 10
@@ -64,7 +64,7 @@ livenessProbe:
 
 readinessProbe:
   httpGet:
-    path: /health
+    path: /
     port: 8080
   initialDelaySeconds: 15
   periodSeconds: 10
