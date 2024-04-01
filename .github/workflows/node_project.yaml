@@ -5,6 +5,7 @@ on:
     paths-ignore:
       - 'helm/**'
       - 'ecr/**'
+permissions: write-all
 jobs:
   node_project:
     name: Build Docker Image
