@@ -13,30 +13,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Checkout destination repository
-        uses: actions/checkout@v2
-        with:
-          repository: robotfree/onexidp-gitops
-          ref: main  # Specify the branch you want to update in the destination repository
-
-      - name: Overwrite file in destination repository
+      - name: Copy file to push
         run: |
           cp /argo-ci-cd/app.yaml /onexidp/apps
-        # Make sure to replace /path/to/cloned/repository/file and /path/to/destination/repository with the actual paths
+        # You may need to install any necessary tools or dependencies before running the copy command
 
-      - name: Commit and push changes
-        uses: EndBug/add-and-commit@v7
-        with:
-          author_name: shujaahmi2l
-          author_email: shuja.ahmed@ideatolife.me
-          message: "Update single file in destination repository"
-          
+      - name: Configure Git
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+
+
+      - name: Pull changes from destination repository
+        run: |
+          cd /onexidp/apps
+          git pull https://github.com/robotfree/onexidp-gitops.git main
+
+      - name: Commit changes
+        run: |
+          cd /onexidp/apps
+          git add .
+          git commit -m "Updating argo-ci-cd/app.yaml file"
+      
       - name: Push changes
-        uses: EndBug/push-to-another-repository@v1
-        with:
-          github_token: ${{ secrets.REPO_TOKEN }}
-          repository: robotfree/onexidp-gitops
-          branch: main
+        run: |
+          cd /onexidp/apps
+          git push https://github.com/robotfree/onexidp-gitops.git main
 
       - name: Setup AWS ECR Details
         uses: aws-actions/configure-aws-credentials@v1
