@@ -30,7 +30,7 @@ jobs:
       - name: Pull changes from destination repository
         run: |
           cd /onexidp
-          git pull https://github.com/robotfree/onexidp-gitops.git main
+          git clone https://github.com/robotfree/onexidp-gitops.git main
 
       - name: Commit changes
         run: |
