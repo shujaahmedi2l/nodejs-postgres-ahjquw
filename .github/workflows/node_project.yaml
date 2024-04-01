@@ -30,8 +30,7 @@ jobs:
       - name: Pull changes from destination repository
         run: |
           cd /onexidp
-          ACCESS_TOKEN=${{ secrets.REPO_TOKEN }}
-          sudo git clone https://github.com/robotfree/onexidp-gitops.git main
+          sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
 
       - name: Commit changes
         run: |
