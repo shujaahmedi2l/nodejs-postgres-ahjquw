@@ -27,6 +27,8 @@ jobs:
           sudo cp /tmp/ecr-nodejs-postgres.yaml /tmp/main/aws-resources/ecr-nodejs-postgres.yaml
           cd main
           ls -la
+          git config user.name 'GitHub Actions'
+          git config user.email 'actions@github.com'
           sudo git add .
           sudo git commit -m "Updating argo-ci-cd/app.yaml file"
           sudo git push https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
