@@ -24,7 +24,7 @@ jobs:
           sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
           ls -la
           sudo cp /tmp/app.yaml /tmp/main/onexidp/apps/app.yaml
-          sudo cp /tmp/ecr-nodejs-postgres.yaml /tmp/main/onexidp/aws-resources/ecr-nodejs-postgres.yaml
+          sudo cp /tmp/ecr-nodejs-postgres.yaml /tmp/main/aws-resources/ecr-nodejs-postgres.yaml
           cd main
           ls -la
           sudo git add .
