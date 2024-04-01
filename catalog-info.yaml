@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "nodejs-postgres-ahjquw"
+  description: "nothin g special"
+  annotations:
+    github.com/project-slug: user:default/shujaahmedi2l/nodejs-postgres-ahjquw
+    argocd/app-name: nodejs-postgres-ahjquw
+  links:
+    - url: "https://dashboard.ideatolife.me"
+      title: Web Application
+      icon: LaunchIcon
+spec:
+  type: service
+  owner: guests
+  lifecycle: experimental
