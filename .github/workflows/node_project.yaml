@@ -18,11 +18,13 @@ jobs:
 
       - name: Pull & Push changes to ONYX Github Repo
         run: |
+          sudo cp argo-ci-cd/app.yaml /tmp/app.yaml
           cd /tmp
           sudo git clone https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
-          sudo cp argo-ci-cd/app.yaml /tmp/main/onexidp/apps/app.yaml
           ls -la
           cd /tmp/main
+          sudo cp /tmp/app.yaml app.yaml
+          ls -la
           sudo git add .
           sudo git commit -m "Updating argo-ci-cd/app.yaml file"
           sudo git push https://${{ secrets.REPO_TOKEN }}@github.com/robotfree/onexidp-gitops.git main
